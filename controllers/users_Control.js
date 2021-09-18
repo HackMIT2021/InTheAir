@@ -3,7 +3,6 @@ const User = require("../models/Users");
 //=================================================================================================
 
 const registerForm = (req, res) => {
-	console.log("login successful");
 	res.render("Users/signup");
 };
 
