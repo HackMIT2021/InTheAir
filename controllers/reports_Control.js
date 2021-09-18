@@ -20,7 +20,8 @@ const showReport = async (req, res) => {
 };
 
 const addReport = async (req, res) => {
-	console.log(new Date());
+	let currDate = new Date();
+	console.log(currDate);
 	// const geoData = await geocoderClient
 	// 	.forwardGeocode({
 	// 		query: req.body.newCamp.location,
