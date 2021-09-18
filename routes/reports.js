@@ -7,7 +7,9 @@ const Control = require("../controllers/reports_Control");
 
 //=================================================================================================
 
-router.get("/reports", Control.reportmap);
+router.get("/", Control.reportmap);
+
+router.get("/new", Control.reportForm);
 
 //=================================================================================================
 
