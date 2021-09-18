@@ -2,12 +2,31 @@ body { margin: 0; padding: 0; }
 
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-
 #sidebar {
     z-index: 10;
-    width: 100%;
+    width: 16%;
     height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 40%;
+    right: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
 }
+
+.button {
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    color:black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+  }
+
+  .button:hover {
+    background-color: lightgray;
+  }
