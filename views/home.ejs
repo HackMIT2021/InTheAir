@@ -20,6 +20,10 @@
             <button class="button" onclick="window.location.href='/about'">About InTheAir</button>
             <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
         </div>
+    
+    <script>
+        const markers = {features: <%- JSON.stringify(places) %> }
+    </script>
 
     <script src="js/loadmap.js"></script>
     </body>
