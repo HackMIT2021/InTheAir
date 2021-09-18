@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
 	
-
+	<link href="css/style.css" rel="stylesheet">
 </head>
 
 
-<body>
+
+
+
+<body style="background-color: rgb(117, 207, 240);">
+
 	<div class="header">
 		<p>Login</p>
 	</div>
 	
-	<div class="container">
+	<div class="container logindiv">
 	
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<form action="login" method="POST" id="login form">
@@ -20,13 +24,19 @@
 		<input type="text" id="email" required></input>
 		<label for="email">Password:</label>
 		<input type="password" id="psw" required ></input>
+
+	
+
 		<div class="clearfix">
-			<button type="submit" class="disabled" id="submit">Sign Up!</button>
+			<button style="background-color: rgb(117, 207, 240);" type = "submit" class="button" onclick="window.location.href='/login'">Log In</button>
+			<button style="background-color: rgb(117, 207, 240);" class="button" onclick="window.location.href='/register'">No Account? Sign Up!</button>
+
 		</div>
 	</form>
 		<!-- check for password correctness -->
 		
-	</div>
+	
+</div>
 
 
 </body>
