@@ -1,3 +1,5 @@
+const User = require("../models/Users");
+
 //=================================================================================================
 
 const registerForm = (req, res) => {
@@ -17,7 +19,7 @@ const contactForm = (req, res) => {
 };
 
 const logIn = (req, res) => {
-	let returnTo = "/campgrounds";
+	let returnTo = "/reports";
 	if (req.session.origin) {
 		returnTo = req.session.origin;
 		delete req.session.origin;
@@ -30,6 +32,20 @@ const logOut = (req, res) => {
 	res.redirect("/reports");
 };
 
+const register = async (req, res) => {
+	try {
+		const { email, username, password } = req.body.newUser;
+		let user = new User({ email, username });
+		user = await User.register(user, password);
+		req.login(user, (err) => {
+			if (err) return next(err);
+			return res.redirect("/reports");
+		});
+	} catch (err) {
+		return res.redirect("/register");
+	}
+};
+
 //=================================================================================================
 
-module.exports = { registerForm, loginForm, aboutForm, contactForm, logOut, logIn };
+module.exports = { registerForm, loginForm, aboutForm, contactForm, logOut, logIn, register };

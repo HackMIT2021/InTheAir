@@ -14,16 +14,16 @@
 	<div class="container signupdiv">
 	
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<form action="login" method="POST" id="login form">
+	<form action="/register" method="POST" id="loginform">
 
-		<label for="email" >Please enter your username:</label>
-		<input type="text" id="username" ></input>
+		<label for="username" >Please enter your username:</label>
+		<input type="text" id="username" name="newUser[username]" autofocus></input>
 
 		<label for="email" >Please enter your Email:</label>
-		<input type="text" id="email" ></input>
-		<label for="email">Password:</label>
-		<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required ></input>
-		<label for="email">Confirm Password:</label>
+		<input type="text" id="email" name="newUser[email]" required ></input>
+		<label for="password">Password:</label>
+		<input type="password" id="psw" name="newUser[password]" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required ></input>
+		<label for="password">Confirm Password:</label>
 		<input type="password" id="psw_conf" ></input>
 		<div class="clearfix">
 			<button style="background-color: rgb(117, 207, 240); " class="button" type="submit" id="submit">Sign Up!</button>
