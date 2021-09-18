@@ -9,6 +9,16 @@ const reportForm = (req, res) => {
 	res.render("Reports/new");
 };
 
+const showReport = async (req, res) => {
+	const { id } = req.params;
+	const report = await Report.findById(id).populate("author");
+	if (!report) {
+		console.log("Report not found");
+		return res.redirect("/reports");
+	}
+	res.render("/reports/show", { report });
+};
+
 const addReport = async (req, res) => {
 	console.log(new Date());
 	// const geoData = await geocoderClient
