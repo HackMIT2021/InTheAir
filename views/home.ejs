@@ -18,12 +18,10 @@
 
         <div id="map"></div>
 
-<<<<<<< HEAD
 <body>
     <h1> Homepage </h1>
     <button onclick="/login">    
 </body>
-=======
         <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng';
             const map = new mapboxgl.Map({
@@ -32,7 +30,6 @@
                 center: [-79.4512, 43.6568],
                 zoom: 4
             });
-
 
             // Add the control to the map.
             map.addControl(
@@ -56,23 +53,23 @@
             );
 
             map.on('load', () => {
-            map.addSource('earthquakes', {
-            type: 'geojson',
-            // Use a URL for the value for the `data` property.
-            data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson'
-            });
-             
-            map.addLayer({
-            'id': 'earthquakes-layer',
-            'type': 'circle',
-            'source': 'earthquakes',
-            'paint': {
-                'circle-radius': 8,
-                'circle-stroke-width': 2,
-                'circle-color': 'red',
-                'circle-stroke-color': 'white'
-            }
-            });
+                map.addSource('earthquakes', {
+                    type: 'geojson',
+                    // Use a URL for the value for the `data` property.
+                    data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson'
+                });
+                 
+                map.addLayer({
+                    'id': 'earthquakes-layer',
+                    'type': 'circle',
+                    'source': 'earthquakes',
+                    'paint': {
+                        'circle-radius': 8,
+                        'circle-stroke-width': 2,
+                        'circle-color': 'red',
+                        'circle-stroke-color': 'white'
+                    }
+                });
             });
 
         </script>
