@@ -41,6 +41,28 @@ const addReport = async (req, res) => {
 	res.redirect("/reports");
 };
 
+const editForm = (req, res) => {
+	const { id } = req.params;
+	const report = await Report.findById(id).populate("author");
+	if (!report) {
+		req.flash("error", "Couldn't find that report!");
+		return res.redirect("/reports");
+	}
+	res.render("Reports/edit", { report });
+};
+
+const editReport = async (req, res) => {};
+
+const destroyReport = async (req, res) => {};
+
 //=================================================================================================
 
-module.exports = { reportmap, reportForm, addReport, showReport };
+module.exports = {
+	reportmap,
+	reportForm,
+	addReport,
+	showReport,
+	editForm,
+	editReport,
+	destroyReport,
+};

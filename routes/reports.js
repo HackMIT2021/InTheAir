@@ -15,7 +15,13 @@ router.get("/new", isAuth, Control.reportForm);
 
 router.get("/:id", catchAsync(Control.showReport));
 
+router.get("/edit/:id", catchAsync(Control.editForm));
+
 router.post("/", isAuth, catchAsync(Control.addReport));
+
+router.put("/:id", catchAsync(Control.editReport));
+
+router.delete("/:id", catchAsync(Control.destroyReport));
 
 //=================================================================================================
 
