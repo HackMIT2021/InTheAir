@@ -99,7 +99,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/", userRoutes);
-app.use("/", reportRoutes);
+app.use("/reports", reportRoutes);
 
 app.all("*", (req, res, next) => {
 	res.status(404).send("Error 404 Not Found");
