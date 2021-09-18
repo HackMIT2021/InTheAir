@@ -1,4 +1,4 @@
-console.log(markers);
+
 mapboxgl.accessToken =
 	"pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng";
 
@@ -34,21 +34,26 @@ map.addControl(
 );
 
 map.on("load", () => {
-	map.addSource("reports", {
-		type: "geojson",
-		// Use a URL for the value for the `data` property.
-		data: markers,
-	});
+    // Add a new source from our GeoJSON data and
+    // set the 'cluster' option to true. GL-JS will
+    // add the point_count property to your source data.
+    map.addSource("markers", {
+        type: "geojson",
+        data: markers,
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
+    });
 
-	map.addLayer({
-		id: "reports-layer",
-		type: "circle",
-		source: "reports",
-		paint: {
-			"circle-radius": 8,
-			"circle-stroke-width": 2,
-			"circle-color": "red",
-			"circle-stroke-color": "white",
-		},
-	});
+    map.addLayer({
+        id: "clusters",
+        type: "circle",
+        source: "markers",
+        'paint': {
+            'circle-radius': 8,
+            'circle-stroke-width': 2,
+            'circle-color': 'red',
+            'circle-stroke-color': 'white'
+        }
+    });
 });

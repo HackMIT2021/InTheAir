@@ -23,10 +23,10 @@ dbConnect.once("open", () => {
 const seed = async () => {
 	await Report.deleteMany({});
 	let coords1, coords2;
-	coords1 = 30.5;
-	coords2 = 50.5;
+	coords1 = -79.4512;
+	coords2 = 43.6568;
 	let report = new Report({
-		name: "Kiev",
+		name: "Toronto",
 		description: "Runny nose",
 		geometry: {
 			type: "Point",
