@@ -15,7 +15,6 @@ map.addControl(
 		accessToken: mapboxgl.accessToken,
 		mapboxgl: mapboxgl,
 	}),
-	"top-right"
 );
 
 // Add geolocate control to the map.
