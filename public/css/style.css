@@ -87,3 +87,19 @@ input[type=text], input[type=password] {
   justify-items: center;
   align-items: center;
 }
+
+.logindiv {
+    padding-inline-end: 50px;
+    padding-inline-start: 20px; 
+    background-color: rgb(255, 255, 255); 
+    border-radius: 20px;
+    height: 30%
+}
+
+.signupdiv {
+    padding-inline-end: 50px;
+    padding-inline-start: 20px; 
+    background-color: rgb(255, 255, 255); 
+    border-radius: 20px;
+    height: 45%
+}
