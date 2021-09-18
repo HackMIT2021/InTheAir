@@ -23,7 +23,7 @@
 		<label for="email">Confirm Password:</label>
 		<input type="password" id="psw_conf" ></input>
 		<div class="clearfix">
-			<button type="submit" id="submit">Sign Up!</button>
+			<button type="submit" style="display:blocked" id="submit">Sign Up!</button>
 		</div>
 	</form>
 		<!-- check for password correctness -->
@@ -33,6 +33,16 @@
 
 </body>
 <footer>
-]
+<script type="">
+	
+	function check_pass() {
+    if (document.getElementById('psw').value ==
+            document.getElementById('psw_conf').value) {
+        document.getElementById('submit').disabled = false;
+    } else {
+        document.getElementById('submit').disabled = true;
+    }
+}
+</script>
 </footer>
 </html>

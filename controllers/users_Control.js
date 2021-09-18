@@ -1,11 +1,11 @@
 //=================================================================================================
 
 const registerForm = (req, res) => {
-	res.render("users/signup");
+	res.render("Users/signup");
 };
 
 const loginForm = (req, res) => {
-	res.render("users/login");
+	res.render("Users/login");
 };
 
 const logout = (req, res) => {};
