@@ -18,11 +18,16 @@ const ReportSchema = new mongoose.Schema({
 
 	date: {
 		type: Date,
-		required: true,
+		//	required: true,
 	},
 
 	geometry: {
-		type: Point,
+		type: {
+			type: String,
+			enum: ["Point"],
+			required: true,
+		},
+
 		coordinates: {
 			type: [Number],
 			required: true,
