@@ -3,6 +3,7 @@ const User = require("../models/Users");
 //=================================================================================================
 
 const registerForm = (req, res) => {
+	console.log("login successful");
 	res.render("Users/signup");
 };
 
@@ -19,6 +20,7 @@ const contactForm = (req, res) => {
 };
 
 const logIn = (req, res) => {
+	console.log("login successful");
 	let returnTo = "/reports";
 	if (req.session.origin) {
 		returnTo = req.session.origin;
