@@ -7,19 +7,40 @@
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
         <link href="css/style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <a href="https://icons8.com/icon/85479/plus-+">Plus + icon by Icons8</a>
     </head>
     <body>
+
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
+        <div class="container-fluid" id="col">
+        <ul class="nav navbar-nav navbar-right">
+                <button class="button" onclick="window.location.href='/login'">Log In ✍</button>
+                <button class="button" onclick="window.location.href='/register'">Sign Up</button>
+                <button class="button" onclick="window.location.href='/about'">About InTheAir</button>
+                <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
+                
+                <script  src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+            
+        </ul>
+        </div>
+        </nav>
+
+   
+
+        <div>
+            <button onclick="window.location.href='/new'" class="new_report"><img src="https://img.icons8.com/material-outlined/96/000000/plus--v1.png"/></button>
+        </div>
+
+
         <!-- Load the `mapbox-gl-geocoder` plugin. -->
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
         <div id="map"></div>
-        <div id="sidebar">
-            <button class="button">Log In ✍</button>
-            <button class="button">Sign Up</button>
-            <button class="button">About InTheAir</button>
-            <button class="button">Contact 📧</button>
-        </div>
     <script>
         const markers = {features: <%- JSON.stringify(places) %> }
     </script>
