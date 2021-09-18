@@ -11,6 +11,8 @@ const Control = require("../controllers/users_Control");
 router.get("/register", Control.registerForm);
 
 router.get("/login", Control.loginForm);
+router.get("/about", Control.aboutForm);
+router.get("/contact", Control.contactForm);
 
 router.get("/logout", Control.logout);
 

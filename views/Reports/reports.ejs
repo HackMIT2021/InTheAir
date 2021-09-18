@@ -16,9 +16,13 @@
         <div id="map"></div>
         <div id="sidebar">
             <button class="button">Log In ✍</button>
+            <button class="button">Sign Up</button>
             <button class="button">About InTheAir</button>
             <button class="button">Contact 📧</button>
         </div>
+    <script>
+        const markers = {features: <%- JSON.stringify(places) %> }
+    </script>
     <script src="js/loadmap.js"></script>
     </body>
 </html>
