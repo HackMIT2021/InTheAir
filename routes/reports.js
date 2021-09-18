@@ -9,7 +9,7 @@ const Control = require("../controllers/reports_Control");
 
 //=================================================================================================
 
-router.get("/", Control.reportmap);
+router.get("/", catchAsync(Control.reportmap));
 
 router.get("/new", isAuth, Control.reportForm);
 
