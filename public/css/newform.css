@@ -1,5 +1,5 @@
 body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 50%; height: 100%;}
+#map { position: absolute; top: 0; bottom: 0; width:50%; height: 100%; position-align: right;}
 
 html, body {
     margin:0px;
@@ -10,6 +10,31 @@ html, body {
     overflow:auto;
 }
 
-#form{
-    float:right;
+
+.rep_form{
+   float:left;
+}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.logindiv{
+display: grid;
+width:50%;
+height:100%;
+margin-left:50%;
+
+}
+.newform {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 20px;
 }

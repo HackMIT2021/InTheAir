@@ -13,10 +13,11 @@
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
-        <div id="wrapper">
+        
+
             <div id="map"></div>
-            <div id="form">
-            	<form action="/reports" method="POST" id="newform">
+            <div id="form" >
+            	<form action="/reports" method="POST" id="newform" class="logindiv">
 
             		<label for="name" >Please enter your main symptom:</label>
             		<input type="text" id="name" name="newReport[name]" autofocus></input>
@@ -35,7 +36,8 @@
             	</form>  
 
             </div>
-        </div>
+
+        
 
     <script src="/js/newform.js"></script>
     
