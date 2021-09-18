@@ -16,6 +16,8 @@ router.get("/contact", Control.contactForm);
 
 router.get("/logout", Control.logout);
 
+router.post("/login");
+
 //=================================================================================================
 
 module.exports = router;
