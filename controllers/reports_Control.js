@@ -11,4 +11,4 @@ const reportForm = (req, res) => {
 
 //=================================================================================================
 
-module.exports = { reportmap };
+module.exports = { reportmap, reportForm };
