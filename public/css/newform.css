@@ -4,7 +4,7 @@ body { margin: 0; padding: 0; }
 html, body {
     margin:0px;
     height:100%;
-    
+
   }
 
 #wrapper{
@@ -16,7 +16,7 @@ html, body {
    float:left;
 }
 
-input[type=text], input[type=password], input[type=geometry] {
+input[type=text], input[type=password], input[type=long] {
   width: 50%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -62,3 +62,10 @@ padding-top: 10%
   .button:hover {
     background-color: lightgray;
   }
+.header{
+	margin-left:50%;
+    margin-top:10%;
+    text-align:center;
+    font-family: "Nunito", sans-serif;
+    font-size:30px;
+}
