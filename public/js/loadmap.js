@@ -8,14 +8,17 @@ const map = new mapboxgl.Map({
 
 
 // Add the control to the map.
+
 map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
-    })
-);
+    }), 'top-right');
+
+
 
 // Add geolocate control to the map.
+
 map.addControl(
     new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -25,8 +28,7 @@ map.addControl(
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true
-    })
-);
+    }), 'top-right');
 
 map.on('load', () => {
 map.addSource('earthquakes', {
