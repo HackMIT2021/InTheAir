@@ -5,7 +5,7 @@ const registerForm = (req, res) => {
 };
 
 const loginForm = (req, res) => {
-	res.render("user/login");
+	res.render("users/login");
 };
 
 const logout = (req, res) => {};
