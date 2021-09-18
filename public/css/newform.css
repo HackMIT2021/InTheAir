@@ -10,13 +10,31 @@ html, body {
     overflow:auto;
 }
 
-<<<<<<< HEAD
+
 .rep_form{
    float:left;
 }
 
-=======
-#form{
-    float:right;
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
->>>>>>> 51ab2b43e174529075bfef993c4d2664b636a296
+
+.logindiv{
+display: grid;
+width:50%;
+height:100%;
+margin-left:50%;
+
+}
+.newform {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 20px;
+}
