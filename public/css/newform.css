@@ -1,20 +1,22 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width:50%; height: 100%; position-align: right;}
 
-html, body {
-    margin:0px;
-    height:100%;
-
-  }
 
 #wrapper{
     overflow:auto;
 }
 
+header{
+	height: 100%;
+}
+body{
+	width:100%;
+}
 
 .rep_form{
    float:left;
 }
+
 
 input[type=text], input[type=password], input[type=long] {
   width: 50%;
@@ -32,7 +34,7 @@ height:100%;
 margin-left:50%;
 padding-left: 10%;
 padding-right: 10%;
-padding-top: 10%
+padding-top: 5%
 }
 .logindiv label {
     font-family:'Nunito', sans-serif;
@@ -64,8 +66,21 @@ padding-top: 10%
   }
 .header{
 	margin-left:50%;
-    margin-top:10%;
+    margin-top:5%;
     text-align:center;
     font-family: "Nunito", sans-serif;
     font-size:30px;
+}
+.message{
+	margin-left: 60%;
+	margin-right:10%;
+	margin-top: 20px;
+	width: 25%;
+	padding: 15px;
+	background: #f1f1f1;
+	height: 10%;
+	font-family: "Nunito", sans-serif;
+	color: grey;
+	text-align: center;
+
 }
