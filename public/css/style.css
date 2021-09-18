@@ -12,7 +12,7 @@ html, body {
 
 #sidebar {
     z-index: 10;
-    width: 16%;
+    width: 10%;
     height: 60%;
     position: absolute;
     top: 40%;
@@ -21,8 +21,6 @@ html, body {
     flex-direction: column;
     justify-content: right;
 }
-
-
 
 .button {
     background-color: white;
@@ -33,7 +31,6 @@ html, body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
     margin: 4px 2px;
   }
 
@@ -120,4 +117,12 @@ input[type=text], input[type=password] {
   align-items: center;
   border-radius:20px;
   height: 20%;
+}
+
+.logindiv label {
+    font-family:'Nunito', sans-serif;
+}
+
+.signupdiv label {
+    font-family:'Nunito', sans-serif;
 }
