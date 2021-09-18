@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MarkerSchema = new mongoose.Schema({
+const ReportSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
@@ -18,11 +18,16 @@ const MarkerSchema = new mongoose.Schema({
 
 	date: {
 		type: Date,
-		required: true,
+		//	required: true,
 	},
 
 	geometry: {
-		type: Point,
+		type: {
+			type: String,
+			enum: ["Point"],
+			required: true,
+		},
+
 		coordinates: {
 			type: [Number],
 			required: true,
@@ -30,6 +35,8 @@ const MarkerSchema = new mongoose.Schema({
 	},
 });
 
+const Report = mongoose.model("Report", ReportSchema);
+
 //=================================================================================================
 
-module.exports = Marker;
+module.exports = Report;

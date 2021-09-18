@@ -37,7 +37,7 @@ app.engine("ejs", ejsMate);
 //=================================================================================================
 
 const userRoutes = require("./routes/users");
-const reportRoutes = require("./routes/marker");
+const reportRoutes = require("./routes/reports");
 
 app.get("/", (req, res) => {
 	res.render("home");

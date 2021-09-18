@@ -1,4 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<h>LOGIN</h>
+<head>
+	
+
+</head>
+
+
+<body>
+	<div class="header">
+		<p>Login</p>
+	</div>
+	
+	<div class="container">
+	
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<form action="login" method="POST" id="login form">
+
+		<label for="email" >Email:</label>
+		<input type="text" id="email" ></input>
+		<label for="email">Password:</label>
+		<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required ></input>
+		<label for="email">Confirm Password:</label>
+		<input type="password" id="psw_conf" ></input>
+		<div class="clearfix">
+			<button type="submit" style="display:blocked" id="submit">Sign Up!</button>
+		</div>
+	</form>
+		<!-- check for password correctness -->
+		
+	</div>
+
+
+</body>
+<footer>
+<script type="">
+	
+	function check_pass() {
+    if (document.getElementById('psw').value ==
+            document.getElementById('psw_conf').value) {
+        document.getElementById('submit').disabled = false;
+    } else {
+        document.getElementById('submit').disabled = true;
+    }
+}
+</script>
+</footer>
 </html>
