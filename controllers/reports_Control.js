@@ -5,6 +5,10 @@ const reportmap = async (req, res) => {
 	res.render("Reports/reports", { places });
 };
 
+const reportForm = (req, res) => {
+	res.render("Reports/new");
+};
+
 //=================================================================================================
 
-module.exports = { reportmap };
+module.exports = { reportmap, reportForm };

@@ -13,9 +13,11 @@ router.get("/login", Control.loginForm);
 router.get("/about", Control.aboutForm);
 router.get("/contact", Control.contactForm);
 
-router.get("/logout", Control.logout);
+router.get("/logout", Control.logOut);
 
-router.post("/login");
+router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), Control.logIn);
+
+router.post("/register", catchAsync(Control.register));
 
 //=================================================================================================
 

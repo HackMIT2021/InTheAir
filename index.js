@@ -75,11 +75,27 @@ app.use(flash());
 
 //=================================================================================================
 
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const User = require("./models/Users");
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new localStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//=================================================================================================
+
 const userRoutes = require("./routes/users");
 const reportRoutes = require("./routes/reports");
+const Report = require("./models/Reports");
 
-app.get("/", (req, res) => {
-	res.render("home");
+app.get("/", async (req, res) => {
+	let places = await Report.find({});
+	res.render("home", { places });
 });
 
 app.use("/", userRoutes);
