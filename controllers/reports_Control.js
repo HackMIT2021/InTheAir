@@ -40,4 +40,4 @@ const addReport = async (req, res) => {
 
 //=================================================================================================
 
-module.exports = { reportmap, reportForm, addReport };
+module.exports = { reportmap, reportForm, addReport, showReport };
