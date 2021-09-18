@@ -14,8 +14,26 @@
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
         <div id="wrapper">
-            <div id="c1">hi</div>
             <div id="map"></div>
+            <div id="form">
+            	<form action="/reports" method="POST" id="newform">
+
+            		<label for="name" >Please enter your main symptom:</label>
+            		<input type="text" id="name" name="newReport[name]" autofocus></input>
+
+            		<label for="decription" >Please describe your symptoms:</label>
+            		<input type="text" id="description" name="newReport[description]" required ></input>
+
+            		<label for="geometry">Your location:</label>
+            		<input type="geometry" id="geomtry" name="newReport[geometry]" required ></input>
+
+            		<div class="clearfix">
+            			<button style="background-color: rgb(117, 207, 240); " class="button" type="report" id="report">Report!</button>
+            		</div>
+
+            	</form>  
+
+            </div>
         </div>
 
     <script src="/js/newform.js"></script>

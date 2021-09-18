@@ -10,10 +10,6 @@ html, body {
     overflow:auto;
 }
 
-#c1{
-   float:left;
-}
-
-#c2{
+#form{
     float:right;
 }
