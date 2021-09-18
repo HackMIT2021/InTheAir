@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true });
 
 const catchAsync = require("../utils/catchAsync");
 
-const Control = require("../controllers/markers_Control");
+const Control = require("../controllers/reports_Control");
 
 //=================================================================================================
 

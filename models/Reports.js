@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MarkerSchema = new mongoose.Schema({
+const ReportSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
@@ -30,6 +30,8 @@ const MarkerSchema = new mongoose.Schema({
 	},
 });
 
+const Report = mongoose.model("Report", ReportSchema);
+
 //=================================================================================================
 
-module.exports = Marker;
+module.exports = Report;
