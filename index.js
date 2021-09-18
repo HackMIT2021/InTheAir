@@ -93,6 +93,13 @@ const userRoutes = require("./routes/users");
 const reportRoutes = require("./routes/reports");
 const Report = require("./models/Reports");
 
+app.use((req, res, next) => {
+	res.locals.currUser = req.user;
+	//res.locals.success = req.flash("success");
+	//res.locals.error = req.flash("error");
+	next();
+});
+
 app.get("/", async (req, res) => {
 	let places = await Report.find({});
 	res.render("home", { places });
@@ -103,6 +110,17 @@ app.use("/reports", reportRoutes);
 
 app.all("*", (req, res, next) => {
 	res.status(404).send("Error 404 Not Found");
+});
+
+app.use((err, req, res, next) => {
+	const { statusCode = 500, message = "Something went wrong!" } = err;
+	if (!err.statusCode) {
+		err.statusCode = 500;
+	}
+	if (!err.message) {
+		err.message = "Something went wrong!";
+	}
+	res.status(statusCode).render("error", { err });
 });
 
 //=================================================================================================
