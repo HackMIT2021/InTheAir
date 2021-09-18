@@ -20,7 +20,7 @@ const contactForm = (req, res) => {
 };
 
 const logIn = (req, res) => {
-	console.log("login successful");
+	req.flash("success", "Welcome back!");
 	let returnTo = "/reports";
 	if (req.session.origin) {
 		returnTo = req.session.origin;
@@ -31,6 +31,7 @@ const logIn = (req, res) => {
 
 const logOut = (req, res) => {
 	req.logout();
+	req.flash("success", "You have logged out!");
 	res.redirect("/reports");
 };
 
@@ -41,6 +42,7 @@ const register = async (req, res) => {
 		user = await User.register(user, password);
 		req.login(user, (err) => {
 			if (err) return next(err);
+			req.flash("success", "Welcome to InTheAir!");
 			return res.redirect("/reports");
 		});
 	} catch (err) {

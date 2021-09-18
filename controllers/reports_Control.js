@@ -13,7 +13,7 @@ const showReport = async (req, res) => {
 	const { id } = req.params;
 	const report = await Report.findById(id).populate("author");
 	if (!report) {
-		console.log("Report not found");
+		req.flash("error", "Couldn't find that report!");
 		return res.redirect("/reports");
 	}
 	res.render("/reports/show", { report });
@@ -37,6 +37,7 @@ const addReport = async (req, res) => {
 	report.geometry = { type: "Point", coordinates: [req.body.lng, req.body.lat] };
 
 	await report.save();
+	req.flash("success", "Successfully created a new report!");
 	res.redirect("/reports");
 };
 
