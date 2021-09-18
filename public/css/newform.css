@@ -10,7 +10,13 @@ html, body {
     overflow:auto;
 }
 
+<<<<<<< HEAD
 .rep_form{
    float:left;
 }
 
+=======
+#form{
+    float:right;
+}
+>>>>>>> 51ab2b43e174529075bfef993c4d2664b636a296
