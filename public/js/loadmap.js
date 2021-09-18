@@ -1,4 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng';
+
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -29,21 +30,22 @@ map.addControl(
 );
 
 map.on('load', () => {
-map.addSource('earthquakes', {
-type: 'geojson',
-// Use a URL for the value for the `data` property.
-data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson'
+    map.addSource('earthquakes', {
+        type: 'geojson',
+        // Use a URL for the value for the `data` property.
+        data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson'
+    });
+     
+        map.addLayer({
+        'id': 'earthquakes-layer',
+        'type': 'circle',
+        'source': 'earthquakes',
+        'paint': {
+            'circle-radius': 8,
+            'circle-stroke-width': 2,
+            'circle-color': 'red',
+            'circle-stroke-color': 'white'
+        }
+    });
 });
- 
-map.addLayer({
-'id': 'earthquakes-layer',
-'type': 'circle',
-'source': 'earthquakes',
-'paint': {
-    'circle-radius': 8,
-    'circle-stroke-width': 2,
-    'circle-color': 'red',
-    'circle-stroke-color': 'white'
-}
-});
-});
+
