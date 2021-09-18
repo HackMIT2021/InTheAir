@@ -13,6 +13,8 @@ router.get("/", Control.reportmap);
 
 router.get("/new", isAuth, Control.reportForm);
 
+router.post("/", isAuth, catchAsync(Control.addReport));
+
 //=================================================================================================
 
 module.exports = router;
