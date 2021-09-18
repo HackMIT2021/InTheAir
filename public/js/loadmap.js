@@ -9,14 +9,17 @@ const map = new mapboxgl.Map({
 });
 
 // Add the control to the map.
+
 map.addControl(
 	new MapboxGeocoder({
 		accessToken: mapboxgl.accessToken,
 		mapboxgl: mapboxgl,
-	})
+	}),
+	"top-right"
 );
 
 // Add geolocate control to the map.
+
 map.addControl(
 	new mapboxgl.GeolocateControl({
 		positionOptions: {
