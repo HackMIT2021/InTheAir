@@ -16,8 +16,20 @@ const contactForm = (req, res) => {
 	res.render("Users/contact");
 };
 
-const logout = (req, res) => {};
+const logIn = (req, res) => {
+	let returnTo = "/campgrounds";
+	if (req.session.origin) {
+		returnTo = req.session.origin;
+		delete req.session.origin;
+	}
+	res.redirect(returnTo);
+};
+
+const logOut = (req, res) => {
+	req.logout();
+	res.redirect("/reports");
+};
 
 //=================================================================================================
 
-module.exports = { registerForm, loginForm, aboutForm, contactForm, logout };
+module.exports = { registerForm, loginForm, aboutForm, contactForm, logOut, logIn };
