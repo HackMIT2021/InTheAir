@@ -1,5 +1,7 @@
 const ExpressError = require("./utils/ExpressError");
 
+const { reportSchema } = require("./joischemas");
+
 const Report = require("./models/Reports");
 
 //=================================================================================================
@@ -16,6 +18,15 @@ const isAuth = (req, res, next) => {
 	next();
 };
 
+const validateReport = (req, res, next) => {
+	const { error } = reportSchema.validate(req.body);
+	if (error) {
+		const msg = error.details.map((el) => el.message).join(",");
+		throw new ExpressError(400, msg);
+	}
+	next();
+};
+
 //=================================================================================================
 
-module.exports = { isAuth };
+module.exports = { isAuth, validateReport };
