@@ -107,11 +107,11 @@ input[type=text], input[type=password] {
 }
 
 .logindiv {
-    padding-inline-end: 50px;
-    padding-inline-start: 20px; 
+    /*padding-inline-end: 50px;
+    padding-inline-start: 20px; */
     background-color: rgb(255, 255, 255); 
     border-radius: 20px;
-    height: 50%
+    padding-left: 0;
 
 }
 
