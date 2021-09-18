@@ -32,8 +32,9 @@ const addReport = async (req, res) => {
 	const { name, description } = req.body.newReport;
 	const report = new Report(req.body.newReport);
 
+	report.date = currDate;
 	report.author = req.user._id;
-	report.geometry = geoData.body.features[0].geometry;
+	report.geometry = { type: "Point", coordinates: [req.body.lng, req.body.lat] };
 
 	await report.save();
 	res.redirect("/reports");
