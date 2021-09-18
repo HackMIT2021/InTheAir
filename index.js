@@ -109,7 +109,8 @@ app.use("/", userRoutes);
 app.use("/reports", reportRoutes);
 
 app.all("*", (req, res, next) => {
-	res.status(404).send("Error 404 Not Found");
+	//res.status(404).send("Error 404 Not Found");
+	next(new ExpressError(404, "Page Not Found"));
 });
 
 app.use((err, req, res, next) => {
