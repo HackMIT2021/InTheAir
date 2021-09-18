@@ -1,4 +1,3 @@
-console.log(markers);
 mapboxgl.accessToken =
 	"pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng";
 const map = new mapboxgl.Map({
