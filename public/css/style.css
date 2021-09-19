@@ -68,7 +68,8 @@ html, body {
   height: 50%; 
   padding-top: 50px;
   background-color: #fefefe;
-  margin: 5% auto 15% auto;
+  margin: 5% auto 20% auto;
+  padding-bottom: 50px;
 }
 .header{
     margin-top:10%;
@@ -112,7 +113,8 @@ input[type=text], input[type=password] {
     padding-inline-start: 20px; 
     background-color: rgb(255, 255, 255); 
     border-radius: 20px;
-    height: 50%
+    height: 50%;
+    padding-bottom: 50px;
 
 }
 
