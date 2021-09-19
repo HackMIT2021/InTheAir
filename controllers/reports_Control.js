@@ -16,7 +16,7 @@ const showReport = async (req, res) => {
 		req.flash("error", "Couldn't find that report!");
 		return res.redirect("/reports");
 	}
-	res.render("/reports/show", { report });
+	res.render("Reports/show", { report });
 };
 
 const addReport = async (req, res) => {
