@@ -57,8 +57,10 @@
             		<div class="container" style="margin-top: 60px; margin-left: -55%; width: 500px">
             			<div class="row">
             				<div class="col" style="padding: 10px;">
-            			<button class="button" style="background-color:rgb(117, 207, 240); width: 200px;" onclick="window.location.href='/edit'">Edit</button></div>
-                        <div class="col" style="padding: 10px;"><button class="button" style="background-color:rgb(117, 207, 240);  width: 200px;" onclick="">Delete</button></div>
+            			<button class="button" style="background-color:rgb(117, 207, 240); width: 200px;" onclick="window.location.href='/reports/edit/<%= report._id %>'">Edit</button></div>
+                        <form action="/reports/<%= report._id %>?_method=DELETE" method="POST">
+                            <div class="col" style="padding: 10px;"><button class="button" style="background-color:rgb(117, 207, 240);  width: 200px;" >Delete</button></div>
+                        </form>
                     </div>
             		</div>
 

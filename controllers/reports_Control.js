@@ -77,6 +77,9 @@ const destroyReport = async (req, res) => {
 	const { id } = req.params;
 	const deletedReport = await Report.findByIdAndDelete(id);
 	const targetUser = await User.findById(deletedReport.author);
+	targetUser.report.hasReport = false;
+	targetUser.report.curr = null;
+	await targetUser.save();
 	req.flash("success", "Successfully deleted your report!");
 	res.redirect("/reports");
 };
