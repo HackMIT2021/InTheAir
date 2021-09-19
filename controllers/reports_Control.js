@@ -41,7 +41,7 @@ const addReport = async (req, res) => {
 	res.redirect("/reports");
 };
 
-const editForm = (req, res) => {
+const editForm = async (req, res) => {
 	const { id } = req.params;
 	const report = await Report.findById(id).populate("author");
 	if (!report) {
