@@ -70,7 +70,7 @@ const editReport = async (req, res) => {
 
 	await target.save();
 	req.flash("success", "Successfully updated report!");
-	res.redirect(`/reports/${target._id}`);
+	res.redirect(`/reports`);
 };
 
 const destroyReport = async (req, res) => {
