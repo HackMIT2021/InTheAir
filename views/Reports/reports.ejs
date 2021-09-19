@@ -45,9 +45,10 @@
 
             <% if(currUser && !currUser.report.hasReport) {%>
                 <button onclick="window.location.href='/reports/new'" class="new_report"><img src="/images/plus.png"/></button>
-
             <% } else {%>
-                <button onclick="window.location.href='/reports/edit/<%= currUser.report.curr %>'" class="new_report"><img src="/images/edit.png"/></button>
+                <% if(currUser && currUser.report.hasReport) {%>
+                    <button onclick="window.location.href='/reports/edit/<%= currUser.report.curr %>'" class="new_report"><img src="/images/edit.png"/></button>
+                <% } %>
             <% } %>
 
         </div>

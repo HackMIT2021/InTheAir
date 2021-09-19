@@ -71,6 +71,7 @@
         <div style="padding-top: 100px;"><div id="map" ></div></div>
 
     <script>
+        const mbxToken = "<%= process.env.MAPBOX_TOKEN %>"
         const markers = {features: <%- JSON.stringify(places) %> }
     </script>
 
