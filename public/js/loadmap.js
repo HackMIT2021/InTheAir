@@ -87,6 +87,20 @@ map.on("load", () => {
 		},
 	});
 
+    const markerHeight = 10;
+    const markerRadius = 10;
+    const linearOffset = 25;
+    const popupOffsets = {
+        'top': [0, 0],
+        'top-left': [0, 0],
+        'top-right': [0, 0],
+        'bottom': [0, -markerHeight],
+        'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'left': [markerRadius, (markerHeight - markerRadius) * -1],
+        'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+    };
+
 	map.on("click", "clusters", (e) => {
 		// Copy coordinates array.
 
@@ -100,7 +114,7 @@ map.on("load", () => {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 		}
 
-		new mapboxgl.Popup({ closeOnMove: true })
+		new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets})
 			.setLngLat(coordinates)
 			.setHTML(popUpContent)
 			.addTo(map);
@@ -117,7 +131,7 @@ map.on("load", () => {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
-        const popup1 = new mapboxgl.Popup({ closeOnMove: true })
+        const popup1 = new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets})
             .setLngLat(coordinates)
             .setText("Cluster")
             .addTo(map);
