@@ -106,6 +106,31 @@ map.on("load", () => {
 			.addTo(map);
 	});
 
+    map.on("click", "clusters-layer", (e) => {
+
+        const coordinates = e.features[0].geometry.coordinates.slice();
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        const popup1 = new mapboxgl.Popup({ closeOnMove: true })
+            .setLngLat(coordinates)
+            .setText("Cluster")
+            .addTo(map);
+
+        var s = document.getElementById("statistics");
+        s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: visible;");
+
+        popup1.on('close', () => {
+            s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: hidden;");
+        });
+    });
+
+
 	// Change the cursor to a pointer when the mouse is over the places layer.
 	map.on("mouseenter", "clusters", () => {
 		map.getCanvas().style.cursor = "pointer";
