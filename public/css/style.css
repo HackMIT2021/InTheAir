@@ -50,10 +50,12 @@ html, body {
     display: inline-block;
     margin: 4px 2px;
     font-weight: bold;
+    outline: none;
   }
 
   .button:hover {
     background-color: lightgray;
+    outline: none;
   }
 
 .header{
