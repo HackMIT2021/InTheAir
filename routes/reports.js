@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true });
 
 const catchAsync = require("../utils/catchAsync");
 
-const { isAuth } = require("../middleware");
+const { isAuth, checkAuthor } = require("../middleware");
 
 const Control = require("../controllers/reports_Control");
 
@@ -15,13 +15,13 @@ router.get("/new", isAuth, Control.reportForm);
 
 router.get("/:id", catchAsync(Control.showReport));
 
-router.get("/edit/:id", catchAsync(Control.editForm));
+router.get("/edit/:id", isAuth, checkAuthor, catchAsync(Control.editForm));
 
 router.post("/", isAuth, catchAsync(Control.addReport));
 
-router.put("/:id", catchAsync(Control.editReport));
+router.put("/:id", isAuth, checkAuthor, catchAsync(Control.editReport));
 
-router.delete("/:id", catchAsync(Control.destroyReport));
+router.delete("/:id", isAuth, checkAuthor, catchAsync(Control.destroyReport));
 
 //=================================================================================================
 

@@ -18,6 +18,16 @@ const isAuth = (req, res, next) => {
 	next();
 };
 
+const checkAuthor = async (req, res, next) => {
+	const { id } = req.params;
+	const report = await Report.findById(id);
+	if (!report.author.equals(req.user._id)) {
+		req.flash("error", "You don't have permission to do that!");
+		return res.redirect(`/reports/${id}`);
+	}
+	next();
+};
+
 const validateReport = (req, res, next) => {
 	const { error } = reportSchema.validate(req.body);
 	if (error) {
@@ -29,4 +39,4 @@ const validateReport = (req, res, next) => {
 
 //=================================================================================================
 
-module.exports = { isAuth, validateReport };
+module.exports = { isAuth, validateReport, checkAuthor };
