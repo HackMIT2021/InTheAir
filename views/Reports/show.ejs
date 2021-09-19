@@ -7,7 +7,53 @@
     <title>Document</title>
 </head>
 
-<body>
-    <h1> This is report show page </h1>    
+
+    
+
+<body style="background-color: rgb(117, 207, 240);">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
+    <div class="container-fluid" id="col">
+    <ul class="nav navbar-nav navbar-right">
+    		<button class="button" onclick="window.location.href='/'">Home</button>
+       		<button class="button" onclick="window.location.href='/about'">About InTheAir</button>
+            <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
+    </ul>      
+    </div>
+ 	</nav>
+
+
+
+	<div class="header">
+            <p>Report your symptoms!</p>
+            </div>
+            <div id="form">
+            	<form action="/reports" method="POST" id="newform" class="logindiv">
+
+            		<label for="name" >Please enter your main symptom:</label>
+            		<input type="text" id="name" name="newReport[name]" autofocus></input>
+
+            		<label for="decription" >Please describe your symptoms:</label>
+            		<input type="text" id="description" name="newReport[description]" required ></input>
+
+            		<label for="geometry">Your location:</label>
+            		<input type="long" id="lng" name="lng" required ></input>
+            		<input type="long" id="lat" name="lat" required ></input>
+            		<div class="clearfix">
+            			<button style="background-color: rgb(117, 207, 240); " class="button" id="report">Report!</button>
+            		</div>
+
+            	</form>
+
+            <div class="message">
+            Double tap on the map to add a location, or enter the coordinates manually
+            </div>    
+
+            </div>
+
+	
+		
+	</div>
+
 </body>
 </html>
