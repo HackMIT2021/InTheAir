@@ -4,8 +4,8 @@ const coordinate = [];
 const map = new mapboxgl.Map({
 	container: "map",
 	style: "mapbox://styles/mapbox/streets-v11",
-	center: [-79.4512, 43.6568],
-	zoom: 4,
+	center: [-89.38098128842597, 43.07928889673647],
+	zoom: 12,
 });
 
 map.doubleClickZoom.disable();
