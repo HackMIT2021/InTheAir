@@ -31,7 +31,7 @@ const logIn = (req, res) => {
 const logOut = (req, res) => {
 	req.logout();
 	req.flash("success", "You have logged out!");
-	res.redirect("/reports");
+	res.redirect("/");
 };
 
 const register = async (req, res) => {
