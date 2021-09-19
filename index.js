@@ -13,7 +13,7 @@ const MongoDBStore = require("connect-mongo");
 
 //=================================================================================================
 
-const DatabaseURL = "mongodb://localhost:27017/InTheAir";
+const DatabaseURL = process.env.MONGODB_URL || "mongodb://localhost:27017/InTheAir";
 
 const mongoose = require("mongoose");
 

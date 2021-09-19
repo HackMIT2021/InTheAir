@@ -6,16 +6,8 @@
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
-        <link href="css/style.css" rel="stylesheet">
-
-
-
-		
+        <link href="css/style.css" rel="stylesheet">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-		
-
-
-
     </head>
     <body>
 
@@ -30,20 +22,17 @@
 	            <button class="button" onclick="window.location.href='/about'">About InTheAir ❔</button>
 	            <button class="button" onclick="window.location.href='/contact'">Contact Us</button>
                 <%- include("partials/flash") %>
-
-
-	    		
+		
 	            <script  src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 	        
 	    </ul>
         </div>
      	</nav>
-
-     	
 				<% if(!currUser) {%>
-				<div id="welcome" class="container welcome" style="width:300px; padding-top: 30px;">Welcome to InTheAir! <br>
-					Choose your path...
 
+				<div id="welcome" class="container welcome" style="width:300px; padding-top: 30px;">Welcome to InTheAir! <br>
+					Choose your path... <br>
+                    <img src="/images/logo2.png" style="width: 80px; margin-top: 10px; border-radius: 40%;"/>
 					<div class="col">
 						<div class="row" style="transform: translateX(15%); ">
 					 <button class="button" style="font-size: 40px" onclick="window.location.href='/login'">Log In ✍</button>
@@ -56,19 +45,13 @@
 				 <% } %>
 
 
-
-
-
         <!-- Load the `mapbox-gl-geocoder` plugin. -->
-        
-        
-       
-
-
-
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
-        <div id="map" style="z-index: -2"></div>
+
+        <div id="map" style="z-index: -1;"></div>
+
 
     <script>
         const mbxToken = "<%= process.env.MAPBOX_TOKEN %>"
