@@ -14,7 +14,16 @@ margin-right: 25%;
 #wrapper{
     overflow:auto;
 }
+.info{
+	margin-left: -160%; 
+}
+.info_txt{
+background-color: lightgrey;
+height: 30px;
+border-radius: 10px;
 
+
+}
 header{
 	height: 100%;
 }
@@ -24,6 +33,10 @@ body{
 
 .rep_form{
    float:left;
+}
+
+.col{
+	margin-left: 30%;
 }
 
 

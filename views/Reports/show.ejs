@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="/css/newform.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        
+
 </head>
 
 
@@ -13,7 +17,6 @@
 <body style="background-color: rgb(117, 207, 240);">
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
-    <div class="container-fluid" id="col">
     <ul class="nav navbar-nav navbar-right">
     		<button class="button" onclick="window.location.href='/'">Home</button>
        		<button class="button" onclick="window.location.href='/about'">About InTheAir</button>
@@ -24,29 +27,34 @@
 
 
 
-	<div class="header">
+	<div class="header" style="margin-right: 50%; margin-top:10%; width: 50%; margin-left: 20%; background-color: white; border-radius: 40px;">
             <p>Report your symptoms!</p>
-            </div>
-            <div id="form">
-            	<form action="/reports" method="POST" id="newform" class="logindiv">
+    
+            	<div class="logindiv">
 
-            		<label for="name" >Please enter your main symptom:</label>
-            		<input type="text" id="name" name="newReport[name]" autofocus></input>
+            		<label for="name" class="info" >Main symptom:</label>
+            		<div class="info_txt">
 
-            		<label for="decription" >Please describe your symptoms:</label>
-            		<input type="text" id="description" name="newReport[description]" required ></input>
+                    </div>
+            		<label for="decription"class="info" >Description:</label>
+            		<div class="info_txt">
+                  
 
-            		<label for="geometry">Your location:</label>
-            		<input type="long" id="lng" name="lng" required ></input>
-            		<input type="long" id="lat" name="lat" required ></input>
+                    </div>
+            		<label for="date" class="info" >Date:</label>
+                    <div class="info_txt">
+                        
+
+                    </div>
             		<div class="clearfix">
             			<button style="background-color: rgb(117, 207, 240); " class="button" id="report">Report!</button>
             		</div>
 
-            	</form>
+            	</div>
 
-            <div class="message">
-            Double tap on the map to add a location, or enter the coordinates manually
+            <div class="col">
+            <button>Upgrade</button>
+            <button>Delete</button>
             </div>    
 
             </div>
