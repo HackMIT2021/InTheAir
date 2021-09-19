@@ -7,6 +7,16 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 		unique: true,
 	},
+	report: {
+		hasReport: {
+			type: Boolean,
+			default: false,
+		},
+		curr: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Report",
+		},
+	},
 });
 
 UserSchema.plugin(passportLocalMongoose);
