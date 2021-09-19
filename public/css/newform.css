@@ -1,7 +1,16 @@
 body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width:50%; height: 100%; position-align: right;}
+#map { position: absolute; top: 0; bottom: 0; width:50%;
+}
 
+#geocoder-container{
+min-width: 50%;
+margin-right: 25%;
+}
 
+/*.mapboxgl-ctrl-geocoder--icon{
+	visibility: hidden;
+}
+*/
 #wrapper{
     overflow:auto;
 }
@@ -19,12 +28,17 @@ body{
 
 
 input[type=text], input[type=password], input[type=long] {
-  width: 50%;
+  width: 80%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  align: center;
+}
+.navbar{
+	width:30%;
+	margin-right:0px;
 }
 
 .logindiv{
@@ -59,6 +73,7 @@ padding-top: 5%
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
+    font-weight: bold;
   }
 
   .button:hover {

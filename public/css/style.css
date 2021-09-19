@@ -52,6 +52,7 @@ html, body {
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
+    font-weight: bold;
   }
 
   .button:hover {
@@ -149,3 +150,15 @@ input[type=text], input[type=password] {
 .signupdiv label {
     font-family:'Nunito', sans-serif;
 }
+
+.welcome{
+    margin: 100px;
+    background-color: white; 
+    border-radius: 20px;
+    height: 50%;
+    z-index: 2;
+    visibility: visible;
+}
+
+
+

@@ -7,10 +7,27 @@
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
         <link href="/css/newform.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body >
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
+        <div class="container-fluid" id="col">
+        <ul class="nav navbar-nav navbar-right">
+                <button class="button" onclick="window.location.href='/about'">About InTheAir</button>
+                <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
+                <button class="button" onclick="window.location.href='/reports'">Back</button>
+                <button class="button" onclick="window.location.href='/'">Log Out</button>
+                <script  src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+            
+        </ul>
+        </div>
+        </nav>
+
+
         <!-- Load the `mapbox-gl-geocoder` plugin. -->
-        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js" id="gc"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
         
