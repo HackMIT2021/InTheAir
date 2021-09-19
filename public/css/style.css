@@ -14,14 +14,17 @@ html, body {
 .welcome{
   z-index: 4; 
 
-  height: 300px;
+  height: 400px;
   background-color: white;
-  transform: translateY(90%);
+  transform: translateY(50%);
   text-align: center;
   border-radius: 20px;
 
 
 
+}
+.logo{
+  z-index: 4; 
 }
 
 .new_report{

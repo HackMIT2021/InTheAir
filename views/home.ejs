@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="icon" href="/images/logo2.png" style="width: 80px; border-radius: 40%;">
         <title>In The Air</title>
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1">
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
         <link href="css/style.css" rel="stylesheet">
@@ -41,9 +42,10 @@
 
      	
 				<% if(!currUser) {%>
-				<div id="welcome" class="container welcome" style="width:300px; padding-top: 30px;">Welcome to InTheAir! <br>
-					Choose your path...
 
+				<div id="welcome" class="container welcome" style="width:300px; padding-top: 30px;">Welcome to InTheAir! <br>
+					Choose your path... <br>
+                    <img src="/images/logo2.png" style="width: 80px; margin-top: 10px; border-radius: 40%;"/>
 					<div class="col">
 						<div class="row" style="transform: translateX(15%); ">
 					 <button class="button" style="font-size: 40px" onclick="window.location.href='/login'">Log In ✍</button>
