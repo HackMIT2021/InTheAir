@@ -13,9 +13,11 @@ router.get("/", catchAsync(Control.reportmap));
 
 router.get("/new", isAuth, checkReportNum, Control.reportForm);
 
-router.get("/:id", catchAsync(Control.showReport));
+router.get("/stat", catchAsync(Control.statPage));
 
 router.get("/edit/:id", isAuth, checkAuthor, catchAsync(Control.editForm));
+
+router.get("/:id", catchAsync(Control.showReport));
 
 router.post("/", isAuth, checkReportNum, catchAsync(Control.addReport));
 

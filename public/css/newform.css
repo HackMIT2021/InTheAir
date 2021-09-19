@@ -7,10 +7,6 @@ min-width: 50%;
 margin-right: 25%;
 }
 
-/*.mapboxgl-ctrl-geocoder--icon{
-	visibility: hidden;
-}
-*/
 #wrapper{
     overflow:auto;
 }
@@ -53,6 +49,7 @@ input[type=text], input[type=password], input[type=long] {
 .navbar{
 	width:40%;
 	margin-right:0px;
+	height: 
 }
 
 .logindiv{
