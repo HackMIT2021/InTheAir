@@ -33,7 +33,7 @@ const checkReportNum = async (req, res, next) => {
 	const targetUser = await User.findById(req.user._id);
 	if (targetUser.report.hasReport) {
 		req.flash("error", "You already have a report, you can edit instead");
-		return res.redirect(`/reports/edit/${id}`);
+		return res.redirect(`/reports/edit/${req.user.report.curr}`);
 	}
 	next();
 };
