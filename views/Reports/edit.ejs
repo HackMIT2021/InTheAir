@@ -20,7 +20,7 @@
             <p>Report your symptoms!</p>
             </div>
             <div id="form">
-            	<form action="/reports" method="POST" id="newform" class="logindiv">
+            	<form action="/reports/<%=report._id%>?_method=PUT" method="POST" id="editform" class="logindiv">
 
             		<label for="name" >Please enter your main symptom:</label>
             		<input type="text" id="name" name="newReport[name]" autofocus value=" <%= report.name %> "></input>
