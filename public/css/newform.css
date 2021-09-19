@@ -110,10 +110,12 @@ transform: translateY(-125%);
     display: inline-block;
     margin: 4px 2px;
     font-weight: bold;
+    outline:none;
   }
 
   .button:hover {
     background-color: lightgray;
+    outline:none;
   }
 .header{
 	margin-left:50%;
