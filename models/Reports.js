@@ -41,7 +41,7 @@ const ReportSchema = new mongoose.Schema(
 );
 
 ReportSchema.virtual("properties.popUpContent").get(function () {
-	return `<a href="/reports/${this._id}">${this.name}</a>`;
+	return `<strong>${this.name}</strong><br><a href="/reports/${this._id}">See more -></a>`;
 });
 
 const Report = mongoose.model("Report", ReportSchema);
