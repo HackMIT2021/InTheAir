@@ -9,7 +9,7 @@
         <link href="/css/newform.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
-    <body >
+    <body>
         <!-- Load the `mapbox-gl-geocoder` plugin. -->
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
@@ -17,11 +17,16 @@
         
 
             <div id="map"></div>
-            <div class="header">
+            
+
+
+            <div id="form" class="container" style="margin-left: 20%; height: 100%">
+
+
+                <div class="header">
             <%- include("../partials/flash") %>
             <p>Report your symptoms!</p>
             </div>
-            <div id="form">
                 <form action="/reports/<%=report._id%>?_method=PUT" method="POST" id="editform" class="logindiv_new">
 
                     <label for="name" >Please enter your main symptom:</label>
