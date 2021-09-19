@@ -47,6 +47,7 @@
 
         
     <script>
+        const mbxToken = "<%= process.env.MAPBOX_TOKEN %>"
         const coor = {features: <%-JSON.stringify(report.geometry)%>};
         console.log(coor);
     </script>
