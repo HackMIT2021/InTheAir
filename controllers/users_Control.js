@@ -3,19 +3,19 @@ const User = require("../models/Users");
 //=================================================================================================
 
 const registerForm = (req, res) => {
-	res.render("Users/signup");
+	res.render("users/signup");
 };
 
 const loginForm = (req, res) => {
-	res.render("Users/login");
+	res.render("users/login");
 };
 
 const aboutForm = (req, res) => {
-	res.render("Users/about");
+	res.render("users/about");
 };
 
 const contactForm = (req, res) => {
-	res.render("Users/contact");
+	res.render("users/contact");
 };
 
 const logIn = (req, res) => {
