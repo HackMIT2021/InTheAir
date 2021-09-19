@@ -50,10 +50,10 @@ map.on("load", () => {
 		type: "circle",
 		source: "markers",
 		paint: {
-			"circle-radius": 8,
+			"circle-radius": 10,
 			"circle-stroke-width": 2,
-			"circle-color": "red",
-			"circle-stroke-color": "white",
+			"circle-color": "yellow",
+			"circle-stroke-color": "black",
 		},
 	});
 
@@ -61,18 +61,35 @@ map.on("load", () => {
 		id: "clusters-layer",
 		type: "circle",
 		source: "markers",
-		filter: ["has", "point_count"],
-		paint: {
-			// Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-			// with three steps to implement three types of circles:
-			//   * Blue, 20px circles when point count is less than 100
-			//   * Yellow, 30px circles when point count is between 100 and 750
-			//   * Pink, 40px circles when point count is greater than or equal to 750
-			"circle-color": "red",
-			"circle-radius": ["step", ["get", "point_count"], 15, 10, 22, 30, 29],
-			"circle-stroke-color": "white",
-			"circle-stroke-width": 2,
-		},
+		filter: ['has', 'point_count'],
+        paint: {
+            // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+            // with three steps to implement three types of circles:
+            //   * Blue, 20px circles when point count is less than 100
+            //   * Yellow, 30px circles when point count is between 100 and 750
+            //   * Pink, 40px circles when point count is greater than or equal to 750
+            "circle-stroke-width": 2,
+            "circle-stroke-color": "black",
+            'circle-color': [
+                'step',
+                ['get', 'point_count'],
+                'orange',
+                6,
+                'red',
+                10,
+                'red'
+                ],
+
+            'circle-radius': [
+                'step',
+                ['get', 'point_count'],
+                20,
+                100,
+                30,
+                750,
+                40
+            ]
+        }
 	});
 
 	map.addLayer({
@@ -142,6 +159,24 @@ map.on("load", () => {
         popup1.on('close', () => {
             s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: hidden;");
         });
+
+        const features = map.queryRenderedFeatures(e.point, {
+            layers: ['clusters-layer']
+        });
+
+        const clusterId = features[0].properties.cluster_id;
+        map.getSource('markers').getClusterExpansionZoom(
+            clusterId,
+            (err, zoom) => {
+                if (err) return;
+                 
+                map.easeTo({
+                center: features[0].geometry.coordinates,
+                zoom: zoom
+            });
+            }
+        );
+
     });
 
 
