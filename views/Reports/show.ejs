@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="/css/newform.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        
+
 </head>
 
-<body>
-    <h1> This is report show page </h1>    
+
+    
+
+<body style="background-color: rgb(117, 207, 240);">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
+    <ul class="nav navbar-nav navbar-right">
+    	 	<% if(!currUser) {%>
+    	 		<button class="button" onclick="window.location.href='/'">Home</button>
+                <button class="button" onclick="window.location.href='/login'">Log In ✍</button>
+                <button class="button" onclick="window.location.href='/register'">Sign Up</button>
+            <% } else {%>
+            	<button class="button" onclick="window.location.href='/reports'">Home</button>
+                <button class="button" onclick="window.location.href='/logout'">Logout</button>
+            <% } %>
+       		<button class="button" onclick="window.location.href='/about'">About InTheAir</button>
+            <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
+    </ul>      
+    </div>
+ 	</nav>
+
+
+
+	<div class="header" style="margin-right: 50%; margin-top:10%; width: 50%; margin-left: 20%; background-color: white; border-radius: 40px;">
+            <p>Edit your report</p>
+    
+            	<div class="logindiv">
+
+            		<label for="name" class="info" >Main symptom:</label>
+            		<div class="info_txt">
+
+                    </div>
+            		<label for="decription"class="info" >Description:</label>
+            		<div class="info_txt">
+                  
+
+                    </div>
+            		<label for="date" class="info" >Date:</label>
+                    <div class="info_txt">
+                        
+
+                    </div>
+            		<div class="clearfix" style="margin-top: 15px; margin-bottom: 15px; margin-left: -130%">
+            			<button class="button" style="background-color:rgb(117, 207, 240); float: left; width: 250px;" onclick="window.location.href='/edit'">Upgrade</button>
+                        <button class="button" style="background-color:rgb(117, 207, 240);  width: 250px;" onclick="">Delete</button>
+            		</div>
+
+            	</div>
+
+          
+
+            </div>
+
+	
+		
+	</div>
+
 </body>
 </html>
