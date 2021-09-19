@@ -24,6 +24,7 @@
                 <button class="button" onclick="window.location.href='/register'">Sign Up</button>
             <% } else {%>
             	<button class="button" onclick="window.location.href='/reports'">Home</button>
+            	<button class="button" onclick="window.location.href='/reports'">Back</button>
                 <button class="button" onclick="window.location.href='/logout'">Logout</button>
             <% } %>
        		<button class="button" onclick="window.location.href='/about'">About InTheAir</button>
@@ -34,28 +35,31 @@
 
 
 
-	<div class="header" style="margin-right: 50%; margin-top:10%; width: 50%; margin-left: 20%; background-color: white; border-radius: 40px;">
-            <p>Edit your report</p>
-    
+	<div class="header" style="margin-right: 50%; margin-top:10%; width: 50%; margin-left: 20%; background-color: white; border-radius: 40px; transform: translateY(50px); padding-top: 20px">
+            <p>Your report</p>
+    		
             	<div class="logindiv">
 
             		<label for="name" class="info" >Main symptom:</label>
             		<div class="info_txt">
-
+            			<%= report.name %>
                     </div>
             		<label for="decription"class="info" >Description:</label>
             		<div class="info_txt">
-                  
+                  	<%= report.description %>
 
                     </div>
             		<label for="date" class="info" >Date:</label>
-                    <div class="info_txt">
-                        
+                    <div class="info_txt" style="height: 120px; padding: 10px">
+                        <%= report.date %>
 
                     </div>
-            		<div class="clearfix" style="margin-top: 15px; margin-bottom: 15px; margin-left: -130%">
-            			<button class="button" style="background-color:rgb(117, 207, 240); float: left; width: 250px;" onclick="window.location.href='/edit'">Upgrade</button>
-                        <button class="button" style="background-color:rgb(117, 207, 240);  width: 250px;" onclick="">Delete</button>
+            		<div class="container" style="margin-top: 60px; margin-left: -55%; width: 500px">
+            			<div class="row">
+            				<div class="col" style="padding: 10px;">
+            			<button class="button" style="background-color:rgb(117, 207, 240); width: 200px;" onclick="window.location.href='/edit'">Edit</button></div>
+                        <div class="col" style="padding: 10px;"><button class="button" style="background-color:rgb(117, 207, 240);  width: 200px;" onclick="">Delete</button></div>
+                    </div>
             		</div>
 
             	</div>
