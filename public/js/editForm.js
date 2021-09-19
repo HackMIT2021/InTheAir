@@ -1,5 +1,4 @@
-mapboxgl.accessToken =
-	"pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng";
+mapboxgl.accessToken = mbxToken;
 const coordinate = [];
 const map = new mapboxgl.Map({
 	container: "map",
@@ -16,7 +15,7 @@ map.addControl(
 	new MapboxGeocoder({
 		accessToken: mapboxgl.accessToken,
 		mapboxgl: mapboxgl,
-	}),
+	})
 );
 
 // Add geolocate control to the map.
@@ -31,19 +30,16 @@ map.addControl(
 		// Draw an arrow next to the location dot to indicate which direction the device is heading.
 		showUserHeading: true,
 	})
-
 );
 
-var currentLocationMarker = new mapboxgl.Marker({ color: "red" }).setLngLat(coor.features.coordinates).addTo(map);
+var currentLocationMarker = new mapboxgl.Marker({ color: "red" })
+	.setLngLat(coor.features.coordinates)
+	.addTo(map);
 
 map.on("dblclick", async (e) => {
-    currentLocationMarker.setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
-    document.getElementById("lng").value = e.lngLat.lng;
-    document.getElementById("lat").value = e.lngLat.lat;
+	currentLocationMarker.setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
+	document.getElementById("lng").value = e.lngLat.lng;
+	document.getElementById("lat").value = e.lngLat.lat;
 });
 
-
-map.on("load", () => {
-
-});
-
+map.on("load", () => {});

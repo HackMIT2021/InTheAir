@@ -1,7 +1,5 @@
-mapboxgl.accessToken =
-	"pk.eyJ1IjoiZGhydXYwODExIiwiYSI6ImNrdHAyNzF3dzA2Y20zMHB1cGpjcDBhNTIifQ.z09KTM7QCabwRTJ0ljiOng";
-
-const map = new mapboxgl.Map({
+mapboxgl.accessToken = mbxToken;
+var map = new mapboxgl.Map({
 	container: "map",
 	style: "mapbox://styles/mapbox/streets-v11",
 	center: [-89.38098128842597, 43.07928889673647],
@@ -61,35 +59,19 @@ map.on("load", () => {
 		id: "clusters-layer",
 		type: "circle",
 		source: "markers",
-		filter: ['has', 'point_count'],
-        paint: {
-            // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-            // with three steps to implement three types of circles:
-            //   * Blue, 20px circles when point count is less than 100
-            //   * Yellow, 30px circles when point count is between 100 and 750
-            //   * Pink, 40px circles when point count is greater than or equal to 750
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "black",
-            'circle-color': [
-                'step',
-                ['get', 'point_count'],
-                'orange',
-                6,
-                'red',
-                10,
-                'red'
-                ],
+		filter: ["has", "point_count"],
+		paint: {
+			// Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+			// with three steps to implement three types of circles:
+			//   * Blue, 20px circles when point count is less than 100
+			//   * Yellow, 30px circles when point count is between 100 and 750
+			//   * Pink, 40px circles when point count is greater than or equal to 750
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "black",
+			"circle-color": ["step", ["get", "point_count"], "orange", 6, "red", 10, "red"],
 
-            'circle-radius': [
-                'step',
-                ['get', 'point_count'],
-                20,
-                100,
-                30,
-                750,
-                40
-            ]
-        }
+			"circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
+		},
 	});
 
 	map.addLayer({
@@ -104,19 +86,19 @@ map.on("load", () => {
 		},
 	});
 
-    const markerHeight = 10;
-    const markerRadius = 10;
-    const linearOffset = 25;
-    const popupOffsets = {
-        'top': [0, 0],
-        'top-left': [0, 0],
-        'top-right': [0, 0],
-        'bottom': [0, -markerHeight],
-        'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-        'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-        'left': [markerRadius, (markerHeight - markerRadius) * -1],
-        'right': [-markerRadius, (markerHeight - markerRadius) * -1]
-    };
+	const markerHeight = 10;
+	const markerRadius = 10;
+	const linearOffset = 25;
+	const popupOffsets = {
+		top: [0, 0],
+		"top-left": [0, 0],
+		"top-right": [0, 0],
+		bottom: [0, -markerHeight],
+		"bottom-left": [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+		"bottom-right": [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+		left: [markerRadius, (markerHeight - markerRadius) * -1],
+		right: [-markerRadius, (markerHeight - markerRadius) * -1],
+	};
 
 	map.on("click", "clusters", (e) => {
 		// Copy coordinates array.
@@ -131,54 +113,54 @@ map.on("load", () => {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 		}
 
-		new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets})
+		new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets })
 			.setLngLat(coordinates)
 			.setHTML(popUpContent)
 			.addTo(map);
 	});
 
-    map.on("click", "clusters-layer", (e) => {
+	map.on("click", "clusters-layer", (e) => {
+		const coordinates = e.features[0].geometry.coordinates.slice();
 
-        const coordinates = e.features[0].geometry.coordinates.slice();
+		// Ensure that if the map is zoomed out such that multiple
+		// copies of the feature are visible, the popup appears
+		// over the copy being pointed to.
+		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+		}
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+		const popup1 = new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets })
+			.setLngLat(coordinates)
+			.setText("Cluster")
+			.addTo(map);
 
-        const popup1 = new mapboxgl.Popup({ closeOnMove: true, offset: popupOffsets})
-            .setLngLat(coordinates)
-            .setText("Cluster")
-            .addTo(map);
+		var s = document.getElementById("statistics");
+		s.setAttribute(
+			"style",
+			"transform: translateX(350%); background-color: rgb(255,174,174); visibility: visible;"
+		);
 
-        var s = document.getElementById("statistics");
-        s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: visible;");
+		popup1.on("close", () => {
+			s.setAttribute(
+				"style",
+				"transform: translateX(350%); background-color: rgb(255,174,174); visibility: hidden;"
+			);
+		});
 
-        popup1.on('close', () => {
-            s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: hidden;");
-        });
+		const features = map.queryRenderedFeatures(e.point, {
+			layers: ["clusters-layer"],
+		});
 
-        const features = map.queryRenderedFeatures(e.point, {
-            layers: ['clusters-layer']
-        });
+		const clusterId = features[0].properties.cluster_id;
+		map.getSource("markers").getClusterExpansionZoom(clusterId, (err, zoom) => {
+			if (err) return;
 
-        const clusterId = features[0].properties.cluster_id;
-        map.getSource('markers').getClusterExpansionZoom(
-            clusterId,
-            (err, zoom) => {
-                if (err) return;
-                 
-                map.easeTo({
-                center: features[0].geometry.coordinates,
-                zoom: zoom
-            });
-            }
-        );
-
-    });
-
+			map.easeTo({
+				center: features[0].geometry.coordinates,
+				zoom: zoom,
+			});
+		});
+	});
 
 	// Change the cursor to a pointer when the mouse is over the places layer.
 	map.on("mouseenter", "clusters", () => {
