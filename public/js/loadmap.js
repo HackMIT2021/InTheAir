@@ -117,10 +117,17 @@ map.on("load", () => {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
-        new mapboxgl.Popup({ closeOnMove: true })
+        const popup1 = new mapboxgl.Popup({ closeOnMove: true })
             .setLngLat(coordinates)
             .setText("Cluster")
             .addTo(map);
+
+        var s = document.getElementById("statistics");
+        s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: visible;");
+
+        popup1.on('close', () => {
+            s.setAttribute("style", "transform: translateX(350%); background-color: rgb(255,174,174); visibility: hidden;");
+        });
     });
 
 
