@@ -126,7 +126,7 @@ app.use((err, req, res, next) => {
 
 //=================================================================================================
 
-const Port = 3000;
+const Port = process.env.PORT || 3000;
 
 app.listen(Port, () => {
 	console.log(`InTheAir is online on port ${Port}`);
