@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>In The Air</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+        <link href="/css/newform.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body >
+        <!-- Load the `mapbox-gl-geocoder` plugin. -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
+        
+
+            <div id="map"></div>
+            <div class="header">
+            <p>Report your symptoms!</p>
+            </div>
+            <div id="form">
+                <form action="/reports/<%=report._id%>?_method=PUT" method="POST" id="editform" class="logindiv_new">
+
+                    <label for="name" >Please enter your main symptom:</label>
+                    <input type="text" id="name" name="newReport[name]" autofocus value=" <%= report.name %> "></input>
+
+                    <label for="decription" >Please describe your symptoms:</label>
+                    <input type="text" id="description" name="newReport[description]" required value=" <%= report.description %> "></input>
+
+                    <label for="geometry">Your location:</label>
+                    <input type="long" id="lng" name="lng" required value="<%= report.geometry.coordinates[0] %>"></input>
+                    <input type="long" id="lat" name="lat" required value="<%= report.geometry.coordinates[1] %>"></input>
+                    <div class="clearfix">
+                        <button style="background-color: rgb(117, 207, 240); " class="button" id="report">Update!</button>
+                    </div>
+
+                </form>
+
+            <div class="message">
+            Double tap on the map to add a location, or enter the coordinates manually
+            </div>    
+
+            </div>
+
+        
+    <script>
+        const coor = {features: <%-JSON.stringify(report.geometry)%>};
+        console.log(coor);
+    </script>
+    <script src="/js/editform.js"></script>
+    
+    </body>
+</html>
