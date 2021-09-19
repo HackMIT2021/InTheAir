@@ -3,6 +3,7 @@ const ExpressError = require("./utils/ExpressError");
 const { reportSchema } = require("./joischemas");
 
 const Report = require("./models/Reports");
+const User = require("./models/Users");
 
 //=================================================================================================
 
@@ -28,6 +29,15 @@ const checkAuthor = async (req, res, next) => {
 	next();
 };
 
+const checkReportNum = async (req, res, next) => {
+	const targetUser = await User.findById(req.user._id);
+	if (targetUser.report.hasReport) {
+		req.flash("error", "You already have a report, you can edit instead");
+		return res.redirect(`/reports/edit/${id}`);
+	}
+	next();
+};
+
 const validateReport = (req, res, next) => {
 	const { error } = reportSchema.validate(req.body);
 	if (error) {
@@ -39,4 +49,4 @@ const validateReport = (req, res, next) => {
 
 //=================================================================================================
 
-module.exports = { isAuth, validateReport, checkAuthor };
+module.exports = { isAuth, validateReport, checkAuthor, checkReportNum };
