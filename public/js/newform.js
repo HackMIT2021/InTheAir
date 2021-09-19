@@ -34,7 +34,7 @@ map.addControl(
 
 );
 
-var currentLocationMarker = new mapboxgl.Marker({ color: "red" }).setLngLat([-79.4512, 43.6568]);
+var currentLocationMarker = new mapboxgl.Marker({ color: "red" }).setLngLat(coor.features.coordinates).addTo(map);
 
 map.on("dblclick", async (e) => {
     currentLocationMarker.setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
