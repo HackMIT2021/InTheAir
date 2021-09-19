@@ -54,38 +54,69 @@ map.on("load", () => {
             'circle-stroke-width': 2,
             'circle-color': 'red',
             'circle-stroke-color': 'white'
-        }
+        } 
     });
-});
 
-map.on('click', 'clusters', (e) => {
-    // Copy coordinates array.
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const description = e;
-    console.log(markers);
-    console.log(e.features[0].properties);
+    map.addLayer({
+            id: "clusters-layer",
+            type: "circle",
+            source: "markers",
+            filter: ["has", "point_count"],
+            paint: {
+                // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+                // with three steps to implement three types of circles:
+                //   * Blue, 20px circles when point count is less than 100
+                //   * Yellow, 30px circles when point count is between 100 and 750
+                //   * Pink, 40px circles when point count is greater than or equal to 750
+                "circle-color": 'red',
+                "circle-radius": ["step", ["get", "point_count"], 15, 10, 22, 30, 29],
+                'circle-stroke-color': 'white',
+                'circle-stroke-width': 2,
+            },
+        });
+
+        map.addLayer({
+            id: "cluster-count",
+            type: "symbol",
+            source: "markers",
+            filter: ["has", "point_count"],
+            layout: {
+                "text-field": "{point_count_abbreviated}",
+                "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+                "text-size": 12,
+            },
+        });
+
+    map.on('click', 'clusters', (e) => {
+        // Copy coordinates array.
+
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const popUpContent = e.features[0].properties.description;
+         
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+         
+        new mapboxgl.Popup({closeOnMove: true})
+            .setLngLat(coordinates)
+            .setHTML(popUpContent)
+            .addTo(map);
+
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'clusters', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
      
-    // Ensure that if the map is zoomed out such that multiple
-    // copies of the feature are visible, the popup appears
-    // over the copy being pointed to.
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
-     
-    new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'clusters', () => {
+        map.getCanvas().style.cursor = '';
+    });
 
 });
 
-// Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'clusters', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
- 
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', 'clusters', () => {
-    map.getCanvas().style.cursor = '';
-});
  
