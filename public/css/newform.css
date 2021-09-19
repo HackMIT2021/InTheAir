@@ -18,11 +18,10 @@ margin-right: 25%;
 	margin-left: -160%; 
 }
 .info_txt{
-background-color: lightgrey;
-height: 30px;
+background: #f1f1f1;
+height: 50px;
 border-radius: 10px;
-
-
+margin-left: -150%;
 }
 header{
 	height: 100%;
