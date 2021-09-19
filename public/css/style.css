@@ -56,18 +56,6 @@ html, body {
     background-color: lightgray;
   }
 
-.container {
-  
-  left: 20%;
-  right: 20%;
-  top: 10%;
-  width: 50%;
-  height: 50%; 
-  padding-top: 50px;
-  background-color: #fefefe;
-  margin: 5% auto 20% auto;
-  padding-bottom: 50px;
-}
 .header{
     margin-top:10%;
     text-align:center;
@@ -112,7 +100,15 @@ input[type=text], input[type=password] {
     border-radius: 20px;
     height: 50%;
     padding-bottom: 50px;
-
+  left: 20%;
+  right: 20%;
+  top: 10%;
+  width: 50%;
+  height: 50%; 
+  padding-top: 50px;
+  background-color: #fefefe;
+  margin: 5% auto 20% auto;
+  padding-bottom: 50px;
 }
 
 .signupdiv {
