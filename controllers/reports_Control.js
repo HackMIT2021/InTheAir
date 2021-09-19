@@ -22,6 +22,10 @@ const showReport = async (req, res) => {
 	res.render("Reports/show", { report });
 };
 
+const statPage = (req, res) => {
+	res.render("Reports/statistics");
+};
+
 const addReport = async (req, res) => {
 	let currDate = new Date();
 	// const geoData = await geocoderClient
@@ -94,4 +98,5 @@ module.exports = {
 	editForm,
 	editReport,
 	destroyReport,
+	statPage,
 };
