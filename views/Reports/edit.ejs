@@ -23,7 +23,7 @@
             <div id="form" class="container" style="margin-left: 20%; height: 100%">
 
 
-                <div class="header">
+                <div class="header" style="margin-bottom: 40px;">
             <%- include("../partials/flash") %>
             <p>Report your symptoms!</p>
             </div>
@@ -38,9 +38,11 @@
                     <label for="geometry">Your location:</label>
                     <input type="long" id="lng" name="lng" required value="<%= report.geometry.coordinates[0] %>"></input>
                     <input type="long" id="lat" name="lat" required value="<%= report.geometry.coordinates[1] %>"></input>
+                    <label >Double click on the map to choose the location, or enter the coordinates manually!</label>
                     <div class="clearfix">
                         <button style="background-color: rgb(117, 207, 240); " class="button" id="report">Update!</button>
                     </div>
+
 
                 </form>
 
@@ -51,6 +53,7 @@
         
     <script>
         const coor = {features: <%-JSON.stringify(report.geometry)%>};
+        const mbxToken = "<%= process.env.MAPBOX_TOKEN %>"
         console.log(coor);
     </script>
     <script src="/js/editform.js"></script>
