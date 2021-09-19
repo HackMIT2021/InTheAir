@@ -15,6 +15,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-black scrolling-navbar" id="nav">
         <div class="container-fluid" id="col">
         <ul class="nav navbar-nav navbar-right">
+            
                 <button class="button" onclick="window.location.href='/about'">About InTheAir</button>
                 <button class="button" onclick="window.location.href='/contact'">Contact 📧</button>
                 <button class="button" onclick="window.location.href='/reports'">Back</button>
@@ -36,8 +37,11 @@
             <div class="header">
             <p>Report your symptoms!</p>
             </div>
-            <div id="form">
-            	<form action="/reports" method="POST" id="newform" class="logindiv">
+
+
+
+            <div id="form" style="max-height: 50%;">
+            	<form action="/reports" method="POST" id="newform" class="logindiv_new">
 
             		<label for="name" >Please enter your main symptom:</label>
             		<input type="text" id="name" name="newReport[name]" autofocus></input>
