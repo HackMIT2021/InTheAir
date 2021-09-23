@@ -12,7 +12,7 @@ Created with HTML/CSS, Node.js, Express, MongoDB, as well as various packages an
  - Show health statistics (in-progress)
 
 ## 📈 Presentation
- - Spectacle Submission: [Spectacle](https://spectacle.hackmit.org/project/38)
+ - HackMIT Spectacle Submission: [Spectacle](https://spectacle.hackmit.org/project/38)
  - Google Slides: [Slides](https://docs.google.com/presentation/d/1BPaPMDiPYAcreVcjiDlzlbSJESA_4f47PAvBEfAmjuE/edit?usp=sharing)
  
 ## 📸 Snapshots
