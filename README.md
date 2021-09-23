@@ -16,7 +16,14 @@ Created with HTML/CSS, Node.js, Express, MongoDB, as well as various packages an
  - Google Slides: [Slides](https://docs.google.com/presentation/d/1BPaPMDiPYAcreVcjiDlzlbSJESA_4f47PAvBEfAmjuE/edit?usp=sharing)
  
 ## 📸 Snapshots
+  ### 1. Home Page
+  <p> <img align="center" src="https://i.ibb.co/J7JLdtR/Home.png" alt="Home"/> </p>
   
+  ### 1. Home Page
+  <p> <img align="center" src="https://i.ibb.co/6HFXRzz/Report.png" alt="Report"/> </p>
+  
+  ### 1. Map Page
+  <p> <img align="center" src="https://i.ibb.co/R2rrcrr/Map.png" alt="Map"/> </p>
 
 ## 🧑‍🤝‍🧑 Our Team Members
  - [Khai Bui](https://github.com/GuyBritish) - Backend Developer, Database
