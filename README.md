@@ -1,4 +1,4 @@
-# 😷 InTheAir
+# 😷 [InTheAir](https://intheair.herokuapp.com/)
 This is InTheAIr, a healthcare web application that crowdsources information about viral outbreaks in the community using anonymous reporting and geolocation. An authenticated user can report, view, edit, and delete symptom reports that would notify them of potential health risks in certain areas. This project was submitted to the HackMIT 2021 Health track.
 
 Created with HTML/CSS, Node.js, Express, MongoDB, as well as various packages and APIs
@@ -11,8 +11,15 @@ Created with HTML/CSS, Node.js, Express, MongoDB, as well as various packages an
  - Validation and error handling
  - Show health statistics (in-progress)
 
-## 📸 Snapshots
-
 ## 📈 Presentation
+ - Spectacle Submission: [Spectacle](https://spectacle.hackmit.org/project/38)
+ - Google Slides: [Slides](https://docs.google.com/presentation/d/1BPaPMDiPYAcreVcjiDlzlbSJESA_4f47PAvBEfAmjuE/edit?usp=sharing)
+ 
+## 📸 Snapshots
+  
 
 ## 🧑‍🤝‍🧑 Our Team Members
+ - [Khai Bui](https://github.com/GuyBritish) - Backend Developer, Database
+ - [Dhruv Gupta](https://github.com/dhruv0811) - Frontend Developer, Map Interface
+ - [Ekaterina Arshinova](https://github.com/crystalktr) - Frontend Developer, User Interface
+ - [Raymond Lennon](https://github.com/raylennon) - Frontend Developer, User Interface
